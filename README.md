@@ -26,3 +26,9 @@
 
 - Classes
 - Async
+
+
+## Sources
+https://github.com/jwillbold/rusty-jsyc
+https://www.usenix.org/legacy/event/woot09/tech/full_papers/rolles.pdf
+https://synthesis.to/2021/10/21/vm_based_obfuscation.html
