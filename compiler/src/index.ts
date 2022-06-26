@@ -14,6 +14,6 @@ const bytecodeCompiler = new BytecodeCompiler(ir)
 const vmArguments = bytecodeCompiler.compile()
 
 
-console.log(vmArguments)
+// console.log(vmArguments)
 fs.writeFileSync('./input/basic-browserchecks/test.args', JSON.stringify(vmArguments, null, 4))
 fs.writeFileSync('./input/basic-browserchecks/test.jsvm', JSON.stringify(ir, null, 4))
