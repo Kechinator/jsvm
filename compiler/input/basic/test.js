@@ -1,15 +1,20 @@
-console.log("Hello World!")
+var v = "botsDoGoBrr"
+var p = "ttt"
 
-const v = "botsGoBrr"
-const p = "ttt"
-
-window.navigator.doNotTrack
+var c = v
+var v = 5
 
 
-function bot() {
-    console.log("this is a test")
-    var t = undefined
-    t = 5
-    
-    return t
-}
+console.log(v)
+
+var bot = 5
+
+
+const dd = "areBotsGoingBrr"
+
+console.log((dd+dd) + "?")
+var d = Array(5)
+console.log(d)
+
+console.log(window)
+

@@ -1,0 +1,12 @@
+export type LOAD_TYPES = {
+    'LOAD_STRING': 0,
+    'LOAD_NUMBER': 1,
+
+    'POP_STACK': 2,
+    'FETCH_VARIABLE': 3,
+
+    'FETCH_DEPENDENCY': 4,
+
+}
+export type Opcode = 'ADD' | 'SUB' | 'MUL' | 'DIV' | 'MOD' | 'NEG' | 'STORE' | 'GET_PROPERTY' | 'SET_PROPERTY' | 'EXISTS' | 'DELETE_PROPERTY' | 'INSTANCE_OF' | 'TYPEOF' | 'APPLY' | 'EQUAL' | 'NOT_EQUAL' | 'LESS_THAN' | 'LESS_THAN_EQUAL' | 'JMP' | 'JMP_IF' |  'JMP_ELSE' |  'PUSH' | 'POP' | 'INIT_CONSTRUCTOR' | 'INIT_ARRAY'
+
