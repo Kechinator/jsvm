@@ -5,7 +5,7 @@
 - Compiler to compile javascript into jsvm's bytecode
 - 24 Supported opcodes
 
-The compiler only covers a subset of javascript syntax
+The compiler only covers a subset of javascript syntax, I will be adding more over time
 
 ## Compilation Process
 
