@@ -40,7 +40,7 @@ fs.writeFileSync('./input/basic-browserchecks/test.jsvm', JSON.stringify(ir, nul
 
 **Input JS Script**
 
-```
+```js
 
 
 console.log("Checking Basic Browser Properties")
