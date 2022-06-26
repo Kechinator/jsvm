@@ -12,9 +12,20 @@ var bot = 5
 
 const dd = "areBotsGoingBrr"
 
-console.log((dd+dd) + "?")
+console.log(dd + "?")
 var d = Array(5)
 console.log(d)
 
-console.log(window)
 
+if (typeof window !== "undefined") {
+
+    console.log(window)
+}
+if (!(typeof window == "undefined")) {
+
+    console.log(window)
+}
+
+var t = 5
+// console.log("test")
+// var tester = 0

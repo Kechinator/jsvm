@@ -2,370 +2,11 @@
     "main": {
         "instructions": [
             {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 0
-                    },
-                    {
-                        "type": "string",
-                        "value": "botsDoGoBrr"
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 1
-                    },
-                    {
-                        "type": "string",
-                        "value": "ttt"
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 2
-                    },
-                    {
-                        "type": "variable",
-                        "value": 0
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 0
-                    },
-                    {
-                        "type": "number",
-                        "value": 5
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 4
-                    },
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 0
-                    }
-                ]
-            },
-            {
-                "opcode": "INIT_ARRAY",
-                "args": []
-            },
-            {
-                "opcode": "POP",
                 "args": [
                     {
                         "type": "number",
                         "value": 5
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "push"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 4
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 5
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "dependency",
-                        "value": 0
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "log"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 4
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 6
-                    },
-                    {
-                        "type": "number",
-                        "value": 5
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 7
-                    },
-                    {
-                        "type": "string",
-                        "value": "areBotsGoingBrr"
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 8
-                    },
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 7
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "?"
-                    }
-                ]
-            },
-            {
-                "opcode": "ADD",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 9
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 9
-                    }
-                ]
-            },
-            {
-                "opcode": "INIT_ARRAY",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 10
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "push"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 8
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 10
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "dependency",
-                        "value": 0
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "log"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 8
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 12
-                    },
-                    {
-                        "type": "array",
-                        "value": null
                     }
                 ]
             },
@@ -379,7 +20,7 @@
                 ]
             },
             {
-                "opcode": "INIT_ARRAY",
+                "opcode": "EQUAL",
                 "args": []
             },
             {
@@ -387,191 +28,6 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 13
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "push"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 12
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 13
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "dependency",
-                        "value": 1
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 12
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 14
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 11
-                    },
-                    {
-                        "type": "variable",
-                        "value": 14
-                    }
-                ]
-            },
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 15
-                    },
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 11
-                    }
-                ]
-            },
-            {
-                "opcode": "INIT_ARRAY",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 16
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "push"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 15
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 16
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "dependency",
                         "value": 0
                     }
                 ]
@@ -580,83 +36,8 @@
                 "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "string",
-                        "value": "log"
-                    }
-                ]
-            },
-            {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
                         "type": "variable",
-                        "value": 15
-                    }
-                ]
-            },
-            {
-                "opcode": "APPLY",
-                "args": []
-            },
-            {
-                "opcode": "TYPEOF",
-                "args": [
-                    {
-                        "type": "dependency",
-                        "value": 2
-                    }
-                ]
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 17
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "variable",
-                        "value": 17
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "string",
-                        "value": "undefined"
-                    }
-                ]
-            },
-            {
-                "opcode": "ADD",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 18
+                        "value": 0
                     }
                 ]
             },
@@ -665,7 +46,96 @@
                 "args": [
                     {
                         "type": "string",
-                        "value": "if_194:260"
+                        "value": "if_0:52"
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 6
+                    }
+                ]
+            },
+            {
+                "opcode": "EQUAL",
+                "args": []
+            },
+            {
+                "opcode": "POP",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 3
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 3
+                    }
+                ]
+            },
+            {
+                "opcode": "JMP_IF",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "if_56:157"
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 6
+                    }
+                ]
+            },
+            {
+                "opcode": "EQUAL",
+                "args": []
+            },
+            {
+                "opcode": "POP",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 6
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 6
                     }
                 ]
             },
@@ -674,20 +144,11 @@
                 "args": []
             },
             {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 21
-                    }
-                ]
-            },
-            {
                 "opcode": "JMP_IF",
                 "args": [
                     {
                         "type": "string",
-                        "value": "if_262:330"
+                        "value": "else_56:157"
                     }
                 ]
             },
@@ -696,53 +157,291 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 24
+                        "value": 9
                     },
+                    {
+                        "type": "array",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "TEST OUTER CONTEXT"
+                    }
+                ]
+            },
+            {
+                "opcode": "INIT_ARRAY",
+                "args": []
+            },
+            {
+                "opcode": "POP",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "array",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "push"
+                    }
+                ]
+            },
+            {
+                "opcode": "GET_PROPERTY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 9
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "opcode": "APPLY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "dependency",
+                        "value": 0
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "log"
+                    }
+                ]
+            },
+            {
+                "opcode": "GET_PROPERTY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "undefined",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 9
+                    }
+                ]
+            },
+            {
+                "opcode": "APPLY",
+                "args": []
+            }
+        ],
+        "inheritsContext": true
+    },
+    "if_0:52": {
+        "instructions": [
+            {
+                "opcode": "STORE",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 1
+                    },
+                    {
+                        "type": "array",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "BOTS GOING BRRR"
+                    }
+                ]
+            },
+            {
+                "opcode": "INIT_ARRAY",
+                "args": []
+            },
+            {
+                "opcode": "POP",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "array",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "push"
+                    }
+                ]
+            },
+            {
+                "opcode": "GET_PROPERTY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "opcode": "APPLY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "dependency",
+                        "value": 0
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "log"
+                    }
+                ]
+            },
+            {
+                "opcode": "GET_PROPERTY",
+                "args": []
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "undefined",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "variable",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "opcode": "APPLY",
+                "args": []
+            }
+        ],
+        "inheritsContext": true
+    },
+    "if_56:157": {
+        "instructions": [
+            {
+                "opcode": "STORE",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 4
+                    },
+                    {
+                        "type": "array",
+                        "value": null
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "string",
+                        "value": "BOTS GOING BRRR"
+                    }
+                ]
+            },
+            {
+                "opcode": "INIT_ARRAY",
+                "args": []
+            },
+            {
+                "opcode": "POP",
+                "args": [
                     {
                         "type": "number",
                         "value": 5
                     }
                 ]
-            }
-        ],
-        "inheritsContext": true
-    },
-    "if_194:260": {
-        "instructions": [
-            {
-                "opcode": "STORE",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 19
-                    },
-                    {
-                        "type": "array",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "dependency",
-                        "value": 2
-                    }
-                ]
-            },
-            {
-                "opcode": "INIT_ARRAY",
-                "args": []
-            },
-            {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 20
-                    }
-                ]
             },
             {
                 "opcode": "PUSH",
@@ -771,7 +470,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 19
+                        "value": 4
                     }
                 ]
             },
@@ -780,7 +479,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 20
+                        "value": 5
                     }
                 ]
             },
@@ -824,7 +523,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 19
+                        "value": 4
                     }
                 ]
             },
@@ -835,14 +534,14 @@
         ],
         "inheritsContext": true
     },
-    "if_262:330": {
+    "else_56:157": {
         "instructions": [
             {
                 "opcode": "STORE",
                 "args": [
                     {
                         "type": "number",
-                        "value": 22
+                        "value": 7
                     },
                     {
                         "type": "array",
@@ -854,8 +553,8 @@
                 "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "dependency",
-                        "value": 2
+                        "type": "string",
+                        "value": "BOTS NOT GOING BRR"
                     }
                 ]
             },
@@ -868,7 +567,7 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 23
+                        "value": 8
                     }
                 ]
             },
@@ -899,7 +598,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 22
+                        "value": 7
                     }
                 ]
             },
@@ -908,7 +607,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 23
+                        "value": 8
                     }
                 ]
             },
@@ -952,7 +651,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 22
+                        "value": 7
                     }
                 ]
             },

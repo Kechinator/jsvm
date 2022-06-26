@@ -1,4 +1,4 @@
-import { ArgumentHeader, InstructionArgument, IntermediateRepresentation } from "./compiler";
+import { ArgumentHeader, Block, InstructionArgument, IntermediateRepresentation } from "./compiler";
 import { Opcode } from "./instrset";
 
 const Opcodes = new Map<Opcode, number>([
@@ -18,18 +18,21 @@ const Opcodes = new Map<Opcode, number>([
     ['DELETE_PROPERTY', 10],
     ['INSTANCE_OF', 11],
     ['TYPEOF', 12],
-    ['APPLY', 13],
+    ['CALL', 13],
     ['EQUAL', 14],
     ['NOT_EQUAL', 15],
     ['LESS_THAN', 16],
     ['LESS_THAN_EQUAL', 17],
-    ['JMP', 18],
+    ['STRICT_NOT_EQUAL', 18],
     ['JMP_IF', 19],
-    ['JMP_ELSE', 20],
+    ['NOT', 20],
     ['PUSH', 21],
     ['POP', 22],
     ['INIT_CONSTRUCTOR', 23],
-    ['INIT_ARRAY', 24]
+    ['INIT_ARRAY', 24],
+    ['EXIT', 25],
+    ['APPLY', 33],
+    ['CALL_MEMBER_EXPRESSION', 34]
 ])
 
 const Headers = new Map<ArgumentHeader, number>([
@@ -45,18 +48,27 @@ const Headers = new Map<ArgumentHeader, number>([
 export interface VirtualMachineArguments {
     bytecode: string
     encryptedStrings: string[]
+    lookUpTable: LookUpTable
 
+}
+export interface LookUpTable {
+    [Label: string]: number;
 }
 
 export class BytecodeCompiler {
     private ir: IntermediateRepresentation
     private encryptedStrings: string[]
     bytecode: number[]
+    lookUpTable: LookUpTable
+
+
 
     constructor(ir: IntermediateRepresentation) {
         this.ir = ir
         this.encryptedStrings = []
         this.bytecode = []
+        
+        this.lookUpTable = {}
     }
     private encryptXor(text: string, key: string) {
         var result = '';
@@ -66,9 +78,40 @@ export class BytecodeCompiler {
         }
         return result;
     }
+    private longToByteArray(long: number) {
+        // we want to represent the input as a 8-bytes array
+        var byteArray = [0, 0, 0, 0, 0, 0, 0, 0];
+    
+        for ( var index = 0; index < byteArray.length; index ++ ) {
+            var byte = long & 0xff;
+            byteArray [ index ] = byte;
+            long = (long - byte) / 256 ;
+        }
+    
+        return byteArray;
+    };  
+
+    private makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      
+        for (var i = 0; i < 8; i++)
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+    
+        return text;
+    }
+
+    private stringToByteArray(key: string): number[] {
+
+        var bytes = []
+        for (var i = 0; i < key.length; i++) {
+            bytes.push(key.charCodeAt(i))
+        }
+        return bytes
+    }
 
 
-
+      
 
     private compileInstructionArgument(arg: InstructionArgument): number[] {
 
@@ -87,14 +130,25 @@ export class BytecodeCompiler {
                 return [header]
             case "string":
 
-                var key = "TEST"
-                const encoded = this.encryptXor(arg.value, key)
+                
+                var key = this.makeid()
+                var keyArray = this.stringToByteArray(key)
 
+                const encoded = this.encryptXor(arg.value, key)
+                
                 
                 this.encryptedStrings.push(encoded)
-                return [header, this.encryptedStrings.length-1]
+
+                var stringPointer = this.longToByteArray(this.encryptedStrings.length-1)
+                
+               
+               
+                return [header, ...stringPointer, ...keyArray]
             case "number":
-                return [header, arg.value]
+                // console.log(this.longToByteArray(arg.value), arg.value)'
+                // console.log(arg.value)
+                // console.log(this.byteArrayToLong(this.longToByteArray(arg.value)))
+                return [header, ...this.longToByteArray(arg.value)]
             case "stack":
                 return []
             case "variable":
@@ -103,35 +157,86 @@ export class BytecodeCompiler {
                 return [header, arg.value]
         }
     }
-
-
-    compile(): VirtualMachineArguments {
-
-        const bytes: number[] = []
-        for (var i=0; i<this.ir.length; i++) {
-            var instruction = this.ir[i]
+    private compileBlock(block: Block, bytes: number[]) {
+        
+        for (var i=0; i<block.instructions.length; i++) {
+            var instruction = block.instructions[i]
             
             var opcode = Opcodes.get(instruction.opcode)
             if (opcode == undefined) {
                 throw "UNHANDLED_OPCODE"
             }
-         
-            bytes.push(opcode)
+            
+            
+            if (instruction.opcode == "JMP_IF") {
+                // need to implement a jmp look up table
+                // console.log("JMP_IF", instruction.args[0])
 
-            for (var j=0; j<instruction.args.length;j++) {
-                bytes.push(...this.compileInstructionArgument(instruction.args[j]))
+                
+                // console.log(bytes.length)
+                // we need to put a place holder of 9 bytes beforehand so we can replace it later onwards when we add in the jmp locations
 
+                var pushOpcode = Opcodes.get("PUSH")
+                if (pushOpcode) {
+                    bytes.push(pushOpcode)
+                    bytes.push(...this.compileInstructionArgument({
+                        type: "string",
+                        value: this.encryptXor(instruction.args[0].value, "label")
+                    }))
+                }
+
+
+                bytes.push(opcode)
+               
+                    
+            } else {
+                bytes.push(opcode)
+
+                for (var j=0; j<instruction.args.length;j++) {
+                    bytes.push(...this.compileInstructionArgument(instruction.args[j]))
+    
+                }
             }
+
+            
+
+
+           
             
 
         }
+        
+    }
+
+    compile(): VirtualMachineArguments {
+
+        const bytes: number[] = []
+
+        for (const [label, block] of Object.entries(this.ir)) {
+
+            console.log(`SET LOCATION ${label}: ${bytes.length}`)
+            this.lookUpTable[this.encryptXor(label, 'label')] = bytes.length
+            
+            this.compileBlock(block, bytes)
+
+            var exitOpcode = Opcodes.get("EXIT")
+            if (exitOpcode) {
+                bytes.push(exitOpcode)
+            }
+        }
+        
+        
+
+        
+       
         this.bytecode = bytes
         const encodedBytecode = Buffer.from(bytes).toString('base64')
 
     
         return {
             bytecode: encodedBytecode,
-            encryptedStrings: this.encryptedStrings
+            encryptedStrings: this.encryptedStrings,
+            lookUpTable: this.lookUpTable
         }
     }
 

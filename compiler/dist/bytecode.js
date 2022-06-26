@@ -16,18 +16,21 @@ const Opcodes = new Map([
     ['DELETE_PROPERTY', 10],
     ['INSTANCE_OF', 11],
     ['TYPEOF', 12],
-    ['APPLY', 13],
+    ['CALL', 13],
     ['EQUAL', 14],
     ['NOT_EQUAL', 15],
     ['LESS_THAN', 16],
     ['LESS_THAN_EQUAL', 17],
-    ['JMP', 18],
+    ['STRICT_NOT_EQUAL', 18],
     ['JMP_IF', 19],
-    ['JMP_ELSE', 20],
+    ['NOT', 20],
     ['PUSH', 21],
     ['POP', 22],
     ['INIT_CONSTRUCTOR', 23],
-    ['INIT_ARRAY', 24]
+    ['INIT_ARRAY', 24],
+    ['EXIT', 25],
+    ['APPLY', 33],
+    ['CALL_MEMBER_EXPRESSION', 34]
 ]);
 const Headers = new Map([
     ['string', 0],
@@ -44,6 +47,7 @@ class BytecodeCompiler {
         this.ir = ir;
         this.encryptedStrings = [];
         this.bytecode = [];
+        this.lookUpTable = {};
     }
     encryptXor(text, key) {
         var result = '';
@@ -51,6 +55,31 @@ class BytecodeCompiler {
             result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
         }
         return result;
+    }
+    longToByteArray(long) {
+        // we want to represent the input as a 8-bytes array
+        var byteArray = [0, 0, 0, 0, 0, 0, 0, 0];
+        for (var index = 0; index < byteArray.length; index++) {
+            var byte = long & 0xff;
+            byteArray[index] = byte;
+            long = (long - byte) / 256;
+        }
+        return byteArray;
+    }
+    ;
+    makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 8; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    }
+    stringToByteArray(key) {
+        var bytes = [];
+        for (var i = 0; i < key.length; i++) {
+            bytes.push(key.charCodeAt(i));
+        }
+        return bytes;
     }
     compileInstructionArgument(arg) {
         const header = Headers.get(arg.type);
@@ -66,12 +95,17 @@ class BytecodeCompiler {
             case "array":
                 return [header];
             case "string":
-                var key = "TEST";
+                var key = this.makeid();
+                var keyArray = this.stringToByteArray(key);
                 const encoded = this.encryptXor(arg.value, key);
                 this.encryptedStrings.push(encoded);
-                return [header, this.encryptedStrings.length - 1];
+                var stringPointer = this.longToByteArray(this.encryptedStrings.length - 1);
+                return [header, ...stringPointer, ...keyArray];
             case "number":
-                return [header, arg.value];
+                // console.log(this.longToByteArray(arg.value), arg.value)'
+                // console.log(arg.value)
+                // console.log(this.byteArrayToLong(this.longToByteArray(arg.value)))
+                return [header, ...this.longToByteArray(arg.value)];
             case "stack":
                 return [];
             case "variable":
@@ -80,24 +114,53 @@ class BytecodeCompiler {
                 return [header, arg.value];
         }
     }
-    compile() {
-        const bytes = [];
-        for (var i = 0; i < this.ir.length; i++) {
-            var instruction = this.ir[i];
+    compileBlock(block, bytes) {
+        for (var i = 0; i < block.instructions.length; i++) {
+            var instruction = block.instructions[i];
             var opcode = Opcodes.get(instruction.opcode);
             if (opcode == undefined) {
                 throw "UNHANDLED_OPCODE";
             }
-            bytes.push(opcode);
-            for (var j = 0; j < instruction.args.length; j++) {
-                bytes.push(...this.compileInstructionArgument(instruction.args[j]));
+            if (instruction.opcode == "JMP_IF") {
+                // need to implement a jmp look up table
+                // console.log("JMP_IF", instruction.args[0])
+                // console.log(bytes.length)
+                // we need to put a place holder of 9 bytes beforehand so we can replace it later onwards when we add in the jmp locations
+                var pushOpcode = Opcodes.get("PUSH");
+                if (pushOpcode) {
+                    bytes.push(pushOpcode);
+                    bytes.push(...this.compileInstructionArgument({
+                        type: "string",
+                        value: this.encryptXor(instruction.args[0].value, "label")
+                    }));
+                }
+                bytes.push(opcode);
+            }
+            else {
+                bytes.push(opcode);
+                for (var j = 0; j < instruction.args.length; j++) {
+                    bytes.push(...this.compileInstructionArgument(instruction.args[j]));
+                }
+            }
+        }
+    }
+    compile() {
+        const bytes = [];
+        for (const [label, block] of Object.entries(this.ir)) {
+            console.log(`SET LOCATION ${label}: ${bytes.length}`);
+            this.lookUpTable[this.encryptXor(label, 'label')] = bytes.length;
+            this.compileBlock(block, bytes);
+            var exitOpcode = Opcodes.get("EXIT");
+            if (exitOpcode) {
+                bytes.push(exitOpcode);
             }
         }
         this.bytecode = bytes;
         const encodedBytecode = Buffer.from(bytes).toString('base64');
         return {
             bytecode: encodedBytecode,
-            encryptedStrings: this.encryptedStrings
+            encryptedStrings: this.encryptedStrings,
+            lookUpTable: this.lookUpTable
         };
     }
 }
