@@ -55,7 +55,7 @@ var concurrency = navigator.hardwareConcurrency
 console.log(appVersion, evalLength, deviceMemory, languages, concurrency)
 ```
 
-**Output Arguments for VM**
+**Bytecode**
 
 ```js
 
