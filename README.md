@@ -11,6 +11,12 @@
 1) JSVM's IR compiler will first construct a intermediate representation of the provided source code
 2) JSVM's Bytecode compiler will then compile the intermediate representation into binary that JSVM will understand
 
+## To-do
+
+- Add function support
+- Add dead code injection option
+- Add integrity checks and domain protection
+- Add dynamic map from program counter to opcodes
 
 ## Status
 
