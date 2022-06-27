@@ -5,11 +5,13 @@
 - Compiler to compile javascript into jsvm's bytecode
 - 24 Supported opcodes
 
+The compiler only covers a subset of javascript syntax, I will be adding more over time
 
 ## Compilation Process
 
 1) JSVM's IR compiler will first construct a intermediate representation of the provided source code
 2) JSVM's Bytecode compiler will then compile the intermediate representation into binary that JSVM will understand
+
 
 ## Example
 
@@ -38,7 +40,7 @@ fs.writeFileSync('./input/basic-browserchecks/test.jsvm', JSON.stringify(ir, nul
 
 **Input JS Script**
 
-```
+```js
 
 
 console.log("Checking Basic Browser Properties")
