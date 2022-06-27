@@ -16,14 +16,10 @@ console.log(dd + "?")
 var d = Array(5)
 console.log(d)
 
-
-if (typeof window !== "undefined") {
-
-    console.log(window)
-}
-if (!(typeof window == "undefined")) {
-
-    console.log(window)
+if (5==5) {
+    console.log("yes")
+} else {
+    console.log("no")
 }
 
 var t = 5

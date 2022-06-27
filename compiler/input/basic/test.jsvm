@@ -151,19 +151,6 @@
                 ]
             },
             {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
                 "args": [
                     {
@@ -173,7 +160,7 @@
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL_MEMBER_EXPRESSION",
                 "args": []
             },
             {
@@ -331,19 +318,6 @@
                 ]
             },
             {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
                 "args": [
                     {
@@ -353,7 +327,7 @@
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL_MEMBER_EXPRESSION",
                 "args": []
             },
             {
@@ -448,22 +422,13 @@
                 "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
                         "type": "variable",
                         "value": 12
                     }
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL",
                 "args": []
             },
             {
@@ -586,19 +551,6 @@
                 ]
             },
             {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
                 "args": [
                     {
@@ -608,17 +560,30 @@
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL_MEMBER_EXPRESSION",
                 "args": []
             },
             {
-                "opcode": "TYPEOF",
+                "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "dependency",
-                        "value": 2
+                        "type": "number",
+                        "value": 5
                     }
                 ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "opcode": "EQUAL",
+                "args": []
             },
             {
                 "opcode": "POP",
@@ -639,16 +604,34 @@
                 ]
             },
             {
-                "opcode": "PUSH",
+                "opcode": "JMP_IF",
                 "args": [
                     {
                         "type": "string",
-                        "value": "undefined"
+                        "value": "if_192:263"
                     }
                 ]
             },
             {
-                "opcode": "ADD",
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "opcode": "PUSH",
+                "args": [
+                    {
+                        "type": "number",
+                        "value": 5
+                    }
+                ]
+            },
+            {
+                "opcode": "EQUAL",
                 "args": []
             },
             {
@@ -656,16 +639,16 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 18
+                        "value": 20
                     }
                 ]
             },
             {
-                "opcode": "JMP_IF",
+                "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "string",
-                        "value": "if_194:260"
+                        "type": "variable",
+                        "value": 20
                     }
                 ]
             },
@@ -674,20 +657,11 @@
                 "args": []
             },
             {
-                "opcode": "POP",
-                "args": [
-                    {
-                        "type": "number",
-                        "value": 21
-                    }
-                ]
-            },
-            {
                 "opcode": "JMP_IF",
                 "args": [
                     {
                         "type": "string",
-                        "value": "if_262:330"
+                        "value": "else_192:263"
                     }
                 ]
             },
@@ -696,7 +670,7 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 24
+                        "value": 23
                     },
                     {
                         "type": "number",
@@ -707,14 +681,14 @@
         ],
         "inheritsContext": true
     },
-    "if_194:260": {
+    "if_192:263": {
         "instructions": [
             {
                 "opcode": "STORE",
                 "args": [
                     {
                         "type": "number",
-                        "value": 19
+                        "value": 18
                     },
                     {
                         "type": "array",
@@ -726,8 +700,8 @@
                 "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "dependency",
-                        "value": 2
+                        "type": "string",
+                        "value": "yes"
                     }
                 ]
             },
@@ -740,7 +714,7 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 20
+                        "value": 19
                     }
                 ]
             },
@@ -771,7 +745,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 19
+                        "value": 18
                     }
                 ]
             },
@@ -780,7 +754,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 20
+                        "value": 19
                     }
                 ]
             },
@@ -807,42 +781,29 @@
                 ]
             },
             {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
                 "args": [
                     {
                         "type": "variable",
-                        "value": 19
+                        "value": 18
                     }
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL_MEMBER_EXPRESSION",
                 "args": []
             }
         ],
         "inheritsContext": true
     },
-    "if_262:330": {
+    "else_192:263": {
         "instructions": [
             {
                 "opcode": "STORE",
                 "args": [
                     {
                         "type": "number",
-                        "value": 22
+                        "value": 21
                     },
                     {
                         "type": "array",
@@ -854,8 +815,8 @@
                 "opcode": "PUSH",
                 "args": [
                     {
-                        "type": "dependency",
-                        "value": 2
+                        "type": "string",
+                        "value": "no"
                     }
                 ]
             },
@@ -868,7 +829,7 @@
                 "args": [
                     {
                         "type": "number",
-                        "value": 23
+                        "value": 22
                     }
                 ]
             },
@@ -899,7 +860,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 22
+                        "value": 21
                     }
                 ]
             },
@@ -908,7 +869,7 @@
                 "args": [
                     {
                         "type": "variable",
-                        "value": 23
+                        "value": 22
                     }
                 ]
             },
@@ -935,29 +896,16 @@
                 ]
             },
             {
-                "opcode": "GET_PROPERTY",
-                "args": []
-            },
-            {
-                "opcode": "PUSH",
-                "args": [
-                    {
-                        "type": "undefined",
-                        "value": null
-                    }
-                ]
-            },
-            {
                 "opcode": "PUSH",
                 "args": [
                     {
                         "type": "variable",
-                        "value": 22
+                        "value": 21
                     }
                 ]
             },
             {
-                "opcode": "APPLY",
+                "opcode": "CALL_MEMBER_EXPRESSION",
                 "args": []
             }
         ],
